@@ -1,5 +1,5 @@
 # My Portfolio using the Launch Darkly SDK to enable a Feature Flag
-This app is a React App that I wrote for my Portfolio. Updated the app code to import the LaunchDarkly SDK to enable a Feature Flag
+This app is a React App that I wrote for my Portfolio. The app has been updated to import the LaunchDarkly SDK to enable a Feature Flag
 
 ## Steps to install and run the app
 ## Using the create-react-app command
@@ -7,14 +7,14 @@ The 'create-react-app' is a tool maintained by Facebook itself and can be used t
 
 ### 1. Install Node JS and npm
 * Checking your version of npm and Node.js
-To see if you already have Node.js and npm installed and check the installed version, run the following commands:
+To see if Node.js and npm have already been installed and check the installed version, run the following commands:
 
 `node -v`
 
 `npm -v`
 
 ### Using a Node version manager to install Node.js and npm
-Node version managers allow you to install and switch between multiple versions of Node.js and npm on your system so you can test your applications on multiple versions of npm to ensure they work for users on different versions.
+Node version managers allow installation and switching between multiple versions of Node.js and npm on the system so applications can be tested on multiple versions of npm to ensure they work for users on different versions.
 
 #### OSX or Linux Node version managers
 * [nvm](https://github.com/creationix/nvm)
@@ -25,29 +25,31 @@ Node version managers allow you to install and switch between multiple versions 
 * [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
 ### Using a Node installer to install Node.js and npm
-If you are unable to use a Node version manager, you can use a Node installer to install both Node.js and npm on your system.
+Node installer can be used to install both Node.js and npm locally if Node version manager seems difficult to use.
 
 * [Node.js installer](https://nodejs.org/en/download/)
 * [NodeSource installer](https://github.com/nodesource/distributions)
 
 #### OS X or Windows Node installers
-If you're using OS X or Windows, use one of the installers from the [Node.js download page](https://nodejs.org/en/download/). Be sure to install the version labeled LTS. Other versions have not yet been tested with npm.
+For OS X or Windows, use one of the installers from the [Node.js download page](https://nodejs.org/en/download/). Be sure to install the version labeled LTS. Other versions have not yet been tested with npm.
 
 #### Linux or other operating systems Node installers
-If you're using Linux or another operating system, use one of the following installers:
+For Linux or another operating system, use one of the following installers:
 
 * [NodeSource installer](https://github.com/nodesource/distributions) (recommended)
 * One of the installers on the [Node.js download page](https://nodejs.org/en/download/)
 
 ### 2. Install React
-You can install React using npm package manager by using the below command.
+React can be installed using npm package manager by using the below command.
+
 `npm install -g create-react-app  `
 
 ### 3. Run the App
-After completing steps 1 and 2, you can start the server by running the following command.
+After completing steps 1 and 2, start the server by running the following command.
 
 Navigate to the directory that has the react app.
 Run the following command
+
 `npm start`
 
 The app will look like this 
@@ -137,4 +139,18 @@ Run the following command to run the app
 
 The feature flag will get added as another component to the app at the bottom of the webpage 
 
- 
+* **When the feature flag `text-search` is turned on**
+<img width="1168" alt="Screen Shot 2021-08-06 at 11 25 00 AM" src="https://user-images.githubusercontent.com/10985717/128573186-5f687f6d-6274-4150-892b-a98946f2362a.png">
+
+**React app-**
+
+![Screen Shot 2021-08-06 at 11 25 10 AM](https://user-images.githubusercontent.com/10985717/128573252-92d9c7a2-1c03-4ec7-8148-0b0707f4d639.png)
+
+* **When the feature flag `text-search` is turned off**
+<img width="1159" alt="Screen Shot 2021-08-06 at 11 25 41 AM" src="https://user-images.githubusercontent.com/10985717/128573286-5202bfc9-51ab-4775-9706-a2ba9ac8094b.png">
+
+**React app-**
+
+![Screen Shot 2021-08-06 at 11 23 35 AM](https://user-images.githubusercontent.com/10985717/128573157-0cf14817-59a5-40ec-be99-2adc6e77d1ba.png)
+
+
