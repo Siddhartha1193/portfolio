@@ -38,7 +38,7 @@ class App extends Component {
 }
 
 export default withLDProvider({
-  clientSideID: '61098fc57729d7257860fe28',
+  clientSideID: 'CLIENT ID HERE',
   user: {
       "key": "user_key",
       "name": "User Name",
