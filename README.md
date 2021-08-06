@@ -58,6 +58,83 @@ The app will look like this
 Goto [Sign up page](https://app.launchdarkly.com/signup) and sign up to create a trial account with Launch Darkly.
 
 ### 2. Create a feature flag
-* Goto <https://app.launchdarkly.com/default/test/quickstart> and create a feature flag with the name text-search.
+* Goto <https://app.launchdarkly.com/default/test/quickstart> and create a feature flag with the name `text-search`.
 * In the section _Set up the applicaation_ select React from the dropdown _Select your language_ and Test from the dropdown _Select your environment_
-* Step a is to create a react app. Since this has already been completed in the 
+* Step a is to create a react app. Since this has already been completed in the previous steps, it is not required to create a react app again.
+* Install the LaunchDarkly SDK
+  
+  `npm install --save launchdarkly-react-client-sdk@2.23.0`
+* In App.js, import withLDProvider:
+ ```javascript 
+ import { withLDProvider } from 'launchdarkly-react-client-sdk';
+ ```
+* Then, change the export default to use your environment-specific client ID and a sample user:
+```javascript 
+export default withLDProvider({
+  clientSideID: 'CLIENT ID HERE',
+  user: {
+      "key": "user_key",
+      "name": "User Name",
+      "email": "User@email.com"
+  }
+})(App);
+```
+* Add a new React component [FeatureFlag.js](https://github.com/Siddhartha1193/portfolioFeatureFlag/blob/main/src/components/FeatureFlag.js) under the [component directory](https://github.com/Siddhartha1193/portfolioFeatureFlag/tree/main/src/components)
+    * Import React and withLDConsumer
+    ```javascript
+    import { withLDConsumer } from 'launchdarkly-react-client-sdk';
+    ```
+    * Create the FeatureFlag component that gets passed the `flags` prop and returns an element based on the state of `text-search`
+    ```javascript
+    const FeatureFlag = ({ flags }) => {
+      return flags.textSearch ? 
+      <div className="section section-about section-first row">
+        <h3  className="css3-gradient-2">LaunchDarkly Flag Status</h3>
+          <ul className="about-list fa-ul">
+            <li><span className="fa-li"><i className="fas fa-certificate "></i></span><b>Text Search Flag is on</b></li></ul></div> : 
+      <div className="section section-about section-first row">
+        <h3  className="css3-gradient-2">LaunchDarkly Flag Status</h3>
+          <ul className="about-list fa-ul">
+            <li><span className="fa-li"><i className="fas fa-certificate "></i></span><b>Text Search Flag is off</b></li></ul></div>;
+    };
+    
+    export default withLDConsumer()(FeatureFlag);
+    ```
+    * Go back to [App.js](https://github.com/Siddhartha1193/portfolioFeatureFlag/blob/main/src/App.js) and import the FeatureFlag component
+    ```javascript
+    import FeatureFlag from './components/FeatureFlag';
+    
+    class App extends Component {
+      render() {
+       return (
+         <div className="App">
+
+          <div className="container">
+            <div className="row page-wrap">
+              <Header/>
+              <Sidebar/>
+              <div className="span8 main-wrap">
+                <About/>
+                <Experience/>
+                <Education/>
+                <Skills/>
+                <Projects/>
+                <FeatureFlag/>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+  ```
+ ### 3. Run the app to test the feature flag
+Run the following command to run the app
+
+`npm start`
+
+The feature flag will get added as another component to the app at the bottom of the webpage 
+
+ 
